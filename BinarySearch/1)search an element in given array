@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        boolean res=bs(a,n,k);
+        if(res==true)
+        System.out.println("Yes");
+        else 
+        System.out.println("No");
+
+   }
+   public static boolean bs(int a[],int n,int k)
+   {
+       int low=0,high=n-1;
+        int mid;
+        while(low<=high)
+        {
+             mid=low+(high-low)/2;
+            if(a[mid]==k)
+            {
+                return true;
+            }
+            else if(a[mid]>k)
+            {
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return false;
+   }
+}
